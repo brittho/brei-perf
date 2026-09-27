@@ -18,6 +18,11 @@ Standalone ROS2 control loops, spatiotemporal state estimation evaluation framew
 
 ### 1. macOS (subscriber node)
 ```bash
+sudo /opt/homebrew/opt/chrony/sbin/chronyd -f /opt/homebrew/etc/chrony.conf
+ros2 doctor --report | grep middleware
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+```
+```bash
 cd ros2_jazzy_ws
 pixi shell -e jazzy
 source ros2_ws/install/local_setup.sh
@@ -33,6 +38,15 @@ Configure libcamera and GStreamer plugin paths
 ```bash
 export LIBCAMERA_IPA_MODULE_PATH=/usr/local/lib/aarch64-linux-gnu/libcamera
 export GST_PLUGIN_PATH=/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0:$GST_PLUGIN_PATH
+```
+```bash
+export PYTHONPATH=~/brei_ws/pidog_env/lib/python3.12/site-packages:$PYTHONPATH
+```
+```bash
+chronyc sources -v
+chronyc tracking
+ros2 doctor --report | grep middleware
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ```
 Run the publisher
 ```bash
