@@ -1,0 +1,17 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ROS 2 build artifact traces (if any slip into the package)
+build/
+install/
+log/
+.pytest_cache/
+
+# System specific files
+.DS_Store
+
+# Backup files
+*.bak
